@@ -1,0 +1,31 @@
+{
+	"name": "dsTBBackup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ServidorBIMarketingStar",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "nome",
+				"type": "varchar"
+			},
+			{
+				"name": "descricao",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "backup"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

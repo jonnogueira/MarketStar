@@ -1,0 +1,9 @@
+{
+	"name": "DFBIMarketingStar",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2136a8c8-6045-4de2-a4f9-7b86e9352baf",
+		"tenantId": "c1bb61d9-5611-467e-83b8-2e5766e179b1"
+	}
+}
