@@ -1,0 +1,98 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Nome do Data Factory",
+			"defaultValue": "DFBIMarketingStar"
+		},
+		"ServidorBIMarketingStar_password": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'password' de 'ServidorBIMarketingStar'"
+		},
+		"ServidorBIMarketingstar__password": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'password' de 'ServidorBIMarketingstar_'"
+		},
+		"ServidorBIMarketingStar_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "servidorbimarketingstar.database.windows.net"
+		},
+		"ServidorBIMarketingStar_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dbbimarketingstars"
+		},
+		"ServidorBIMarketingStar_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminsql"
+		},
+		"ServidorBIMarketingstar__properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "servidorbimarketingstar.database.windows.net"
+		},
+		"ServidorBIMarketingstar__properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dbbimarketingstars"
+		},
+		"ServidorBIMarketingstar__properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminsql"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI para a conta de armazenamento contendo os modelos do ARM vinculados"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Token SAS para a conta de armazenamento contendo modelos do ARM vinculados"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DFBIMarketingStar_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ServidorBIMarketingStar_password": {
+						"value": "[parameters('ServidorBIMarketingStar_password')]"
+					},
+					"ServidorBIMarketingstar__password": {
+						"value": "[parameters('ServidorBIMarketingstar__password')]"
+					},
+					"ServidorBIMarketingStar_properties_typeProperties_server": {
+						"value": "[parameters('ServidorBIMarketingStar_properties_typeProperties_server')]"
+					},
+					"ServidorBIMarketingStar_properties_typeProperties_database": {
+						"value": "[parameters('ServidorBIMarketingStar_properties_typeProperties_database')]"
+					},
+					"ServidorBIMarketingStar_properties_typeProperties_userName": {
+						"value": "[parameters('ServidorBIMarketingStar_properties_typeProperties_userName')]"
+					},
+					"ServidorBIMarketingstar__properties_typeProperties_server": {
+						"value": "[parameters('ServidorBIMarketingstar__properties_typeProperties_server')]"
+					},
+					"ServidorBIMarketingstar__properties_typeProperties_database": {
+						"value": "[parameters('ServidorBIMarketingstar__properties_typeProperties_database')]"
+					},
+					"ServidorBIMarketingstar__properties_typeProperties_userName": {
+						"value": "[parameters('ServidorBIMarketingstar__properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
